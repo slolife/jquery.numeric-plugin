@@ -245,7 +245,7 @@ $.fn.removeNumeric = function()
 // Based on code from http://javascript.nwbox.com/cursor_position/ (Diego Perini <dperini@nwbox.com>)
 $.fn.getSelectionStart = function(o)
 {
-	if (o.createTextRange)
+	if (document.selection)
 	{
 		var r = document.selection.createRange().duplicate();
 		r.moveEnd('character', o.value.length);
@@ -257,7 +257,7 @@ $.fn.getSelectionStart = function(o)
 // Based on code from http://javascript.nwbox.com/cursor_position/ (Diego Perini <dperini@nwbox.com>)
 $.fn.getSelectionEnd = function(o)
 {
-	if (o.createTextRange) {
+	if (document.selection) {
 		var r = document.selection.createRange().duplicate()
 		r.moveStart('character', -o.value.length)
 		return r.text.length
